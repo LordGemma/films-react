@@ -1,0 +1,44 @@
+.search-input,
+.search-input:focus {
+  background-color: #414141;
+  border: 0;
+  border-bottom: 2px solid #ea445d;
+  outline: none;
+  box-shadow: none;
+  color: white;
+  font-weight: normal;
+  padding: 10px 15px;
+}
+
+.radio-toolbar {
+  margin: 10px;
+  display: inline-block;
+}
+
+.radio-toolbar input[type="radio"] {
+  display: none;
+}
+
+.radio-toolbar label {
+  display: inline-block;
+  background-color: #414141;
+  padding: 5px 10px;
+  font-family: Arial;
+  font-size: 12px;
+  border: 1px solid #414141;
+  border-radius: 4px;
+  color: white;
+  text-transform: uppercase;
+  transition: all 0.3s linear;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.radio-toolbar label:hover {
+  background-color: #ea445d;
+}
+
+.radio-toolbar input[type="radio"]:checked + label {
+  background-color: #ea445d;
+  border-color: #ea445d;
+}

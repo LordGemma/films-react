@@ -1,0 +1,12 @@
+body {
+    height: 100vh;
+}
+
+#app, .entry-point {
+    height: 100%;
+}
+
+.entry-point {
+    display: flex;
+    flex-wrap: wrap;
+}
