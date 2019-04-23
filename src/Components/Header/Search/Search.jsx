@@ -51,7 +51,7 @@ export class Search extends Component {
 
   render() {
     return (
-      <form>
+      <form className='search'>
         <div className="form-group">
           <h3>Find your movie</h3>
         </div>
@@ -83,7 +83,7 @@ export class Search extends Component {
               />
             </div>
           </div>
-          <div className="col-4">
+          <div className="col-4 d-flex align-items-center justify-content-end">
             <Button text="Search" type="submit" clicked={this.handleSubmit} />
           </div>
         </div>

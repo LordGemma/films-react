@@ -62,8 +62,9 @@ module.exports = function(env, options) {
     ],
 
     devServer: {
-      contentBase: "./dist",
+      contentBase: path.join(__dirname, 'dist'),
       hot: true,
+      historyApiFallback: true,
     },
 
     output: {

@@ -32,7 +32,7 @@ export class Films extends Component {
               return <Film key={film.id} film={film} />;
             })
           ) : (
-            <div>Nothing was found!</div>
+            <div>No films found</div>
           )}
         </div>
       </div>
