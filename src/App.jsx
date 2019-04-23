@@ -15,7 +15,8 @@ class App extends Component {
     return (
       <div className="entry-point">
           <Switch>
-            <Route path="/" exact component={ Main } />              
+            <Route path="/" exact component={ Main } /> 
+            <Route path="/film/:id" component={ Main } />             
             <Route component={ NotFound } />
           </Switch>
       </div>

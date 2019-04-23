@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
 import { Genres } from "./Genres";
 import { Poster } from "./Poster";
@@ -12,7 +13,9 @@ export const Film = ({ film }) => {
     <div className="col-4">
       <div className="row film">
         <div className="col-12">
-          <Poster url={poster_path} filmTitle={title} />
+          <Link to={`/film/${id}`}>
+            <Poster url={poster_path} filmTitle={title} />
+          </Link>
         </div>
         <div className="col-8">
           <Title title={title} />
