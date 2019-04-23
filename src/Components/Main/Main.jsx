@@ -1,17 +1,23 @@
-import React from "react";
+import React, { Fragment } from "react";
+import { Header } from '../Header';
+import { Footer } from '../Footer';
 import "./Main.scss";
 import { FilmsContainer } from '../../Containers/Films';
 
 export const Main = () => {
   return (
-    <main className="main">
-      <div className="container">
-        <div className="row">
-          <div className="col-12">
-            <FilmsContainer />
+    <Fragment>
+      <Header />
+      <main className="main">
+        <div className="container">
+          <div className="row">
+            <div className="col-12">
+              <FilmsContainer />
+            </div>
           </div>
         </div>
-      </div>
-    </main>
+      </main>
+      <Footer />
+    </Fragment>
   );
 };

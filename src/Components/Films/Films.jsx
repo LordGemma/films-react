@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import _ from 'lodash';
 
 import { Film } from "./Film";
 
@@ -12,14 +13,15 @@ export class Films extends Component {
 
   componentDidMount() {
     this.props.getFilms();
-  }
+  }  
 
-  componentDidUpdate(prevProps, prevState) {
-    this.setState({
-      films: this.props.filmsList
-    })
+  componentDidUpdate() {
+    if(!_.isEqual(this.state.films, this.props.filmsList)) {
+      this.setState({
+        films: this.props.filmsList
+      })
+    }
   }
-  
 
   render() {
     return (
