@@ -29,7 +29,7 @@ export class Films extends Component {
         <div className="row">
           {this.state.films.length ? (
             this.state.films.map(film => {
-              return <Film key={film.id} film={film} />;
+              return <Film key={film.id} film={film} clicked={() => this.props.goToFilm(film.id)} />;
             })
           ) : (
             <div>No films found</div>

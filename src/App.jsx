@@ -7,6 +7,7 @@ import 'bootstrap/scss/bootstrap.scss'
 import './App.scss';
 
 import { Main } from './Components/Main';
+import { FilmContainer } from './Containers/Films/FilmContainer';
 import { NotFound } from './Components/404';
 
 
@@ -16,7 +17,7 @@ class App extends Component {
       <div className="entry-point">
           <Switch>
             <Route path="/" exact component={ Main } /> 
-            <Route path="/film/:id" component={ Main } />             
+            <Route path="/film/:id" component={ FilmContainer } />             
             <Route component={ NotFound } />
           </Switch>
       </div>

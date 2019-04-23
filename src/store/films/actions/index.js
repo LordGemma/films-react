@@ -1,3 +1,1 @@
-export {
-    getFilms
-} from './films';
+export * from './films';

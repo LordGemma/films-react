@@ -1,18 +1,20 @@
 import { connect } from 'react-redux';
-import { FilmDetail } from '../../Components/FilmDetail';
+import { FilmDetail } from '../../Components/FilmDetails';
 import { getFilm } from '../../store/films/actions';
+import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state) => {
-    const { filmData } = state.films;
+    const { filmData, filmsList } = state.films;
     return {
-        filmData
+        filmData,
+        filmsList
     };
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getFilm: () => dispatch(getFilm())
+        getFilm: (id) => dispatch(getFilm(id))
     }
 }
 
-export const FilmContainer = connect(mapStateToProps, mapDispatchToProps)(FilmDetail);
+export const FilmContainer = withRouter(connect(mapStateToProps, mapDispatchToProps)(FilmDetail));

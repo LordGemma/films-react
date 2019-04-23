@@ -1,5 +1,6 @@
 import { getFilmsData, getFilmData } from '../../../services';
-import { GET_ALL_FILMS } from './actionTypes';
+import { GET_ALL_FILMS, GET_FILM } from './actionTypes';
+import history from '../../../history';
 
 export const getFilms = () => {
     return (dispatch) => {
@@ -24,6 +25,7 @@ export const getFilm = (filmId) => {
                 type: GET_FILM,
                 payload: data,
             });
+            history.push(`/film/${filmId}`);
         })
         .catch( error => {
             console.log(error);
