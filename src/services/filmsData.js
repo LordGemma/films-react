@@ -1,19 +1,14 @@
 import axios from 'axios';
+import { baseURL } from '../utils';
 
-axios.defaults.baseURL = 'https://reactjs-cdp.herokuapp.com/';
+axios.defaults.baseURL = baseURL;
 
-export function getFilmsData() {
-    return new Promise((resolve, reject) => {
-        axios.get(`movies`)
-        .then(films => {
-            resolve(films.data);
-        })
-        .catch(error => {
-            reject(error);
-        });        
-    })
-}
+export function getFilmsData(params) {
+    return axios.get(`movies`, {
+        params: params
+    });
+};
 
 export function getFilmData(filmId) {
     return axios.get(`movies/${filmId}`);
-}
+};

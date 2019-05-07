@@ -1,34 +1,23 @@
-import { getFilmsData, getFilmData } from '../../../services';
-import { GET_ALL_FILMS, GET_FILM } from './actionTypes';
-import history from '../../../history';
+import { 
+    getFilmsData,
+} from '../../../services';
 
-export const getFilms = () => {
+import { 
+    fetchFilmsBegin,
+    fetchFilmsSuccess,
+    fetchFilmsFailure
+ } from './actionTypes';
+
+export const getFilms = (params={}) => {
     return (dispatch) => {
-        getFilmsData()
+        dispatch(fetchFilmsBegin());
+        getFilmsData(params)
         .then(({ data }) => {
-            dispatch({
-                type: GET_ALL_FILMS,
-                payload: data,
-            });
+            dispatch(fetchFilmsSuccess(data.data));
         })
         .catch( error => {
+            dispatch(fetchFilmsFailure(error));
             console.log(error);
         } );
     }
 };
-
-export const getFilm = (filmId) => {
-    return (dispatch) => {
-        getFilmData(filmId)
-        .then(({ data }) => {
-            dispatch({
-                type: GET_FILM,
-                payload: data,
-            });
-            history.push(`/film/${filmId}`);
-        })
-        .catch( error => {
-            console.log(error);
-        } );
-    }
-}

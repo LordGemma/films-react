@@ -4,7 +4,7 @@ import "./Header.scss";
 import { Logo } from "../Common";
 import { Search } from './Search';
 
-export const Header = () => {
+export const Header = (props) => {
   return (
     <header className="header">
       <div className="container">
@@ -13,7 +13,7 @@ export const Header = () => {
             <Logo />
           </div>
           <div className="col-12">
-            <Search />
+            <Search {...props} />
           </div>
         </div>
       </div>

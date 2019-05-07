@@ -1,9 +1,7 @@
-import React from 'react';
+import React from "react";
 
-import './title.scss';
+import "./title.scss";
 
 export const Title = ({ title }) => {
-    return (
-        <h3 className='film-title'><a href="#">{title}</a></h3>
-    );
+  return <h3 className="film-title">{title}</h3>;
 };

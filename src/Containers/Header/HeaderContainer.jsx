@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
-import { Films } from "../../Components/Films";
+import { Header } from "../../Components/Header";
 import { getFilms } from "../../store/films/actions";
+import { withRouter } from "react-router-dom";
 
 const mapStateToProps = state => {
   const { searchResult } = state.search;
@@ -11,11 +12,13 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getFilms: params => dispatch(getFilms(params))
+    getFilms: () => dispatch(getFilms({ search: "gemini" }))
   };
 };
 
-export const SearchContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Films);
+export const HeaderContainer = withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Header)
+);

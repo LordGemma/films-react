@@ -35,18 +35,18 @@ export class Search extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    const { searchText, searchBy } = this.state;
     const searchData = {
-      ...this.state
+      search: searchText,
+      searchBy: searchBy,
     };
-
+    console.log(searchData);
+    this.props.getFilms(searchData);
     this.setState({
       searchText: "",
       searchBy: "title"
     })
-
-    getSearchResult(searchData).then(data => {
-      console.log(data);
-    });
+    this.props.history.push(`search/${searchText}`);
   }
 
   render() {

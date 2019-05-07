@@ -1,18 +1,19 @@
 import { connect } from 'react-redux';
 import { Films } from '../../Components/Films';
-import { getFilms, getFilm } from '../../store/films/actions';
+import { getFilms } from '../../store/films/actions';
 import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state) => {
-    const { filmsList } = state.films;
+    const { filmsList, loading, error } = state.films;
     return {
         filmsList,
+        loading,
+        error,
     };
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        goToFilm: (id) => dispatch(getFilm(id)),
         getFilms: () => dispatch(getFilms()),
     }
 }

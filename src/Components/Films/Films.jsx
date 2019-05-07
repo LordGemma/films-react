@@ -1,39 +1,40 @@
 import React, { Component } from "react";
-import _ from 'lodash';
+import _ from "lodash";
 
 import { Film } from "./Film";
 
 export class Films extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      films: []
-    }
+  fetchData() {
+    this.props.getFilms();
   }
 
   componentDidMount() {
-    this.props.getFilms();
-  }  
+    this.fetchData();
+  }
 
-  componentDidUpdate() {
-    if(!_.isEqual(this.state.films, this.props.filmsList)) {
-      this.setState({
-        films: this.props.filmsList
-      })
+  componentDidUpdate(prevProps) {
+    if (!_.isEqual(this.props.filmsList, prevProps.filmsList)) {
+      this.fetchData();
     }
   }
 
   render() {
+    const { error, loading, filmsList } = this.props;
+
+    if (error) {
+      return <div>Error! {error.message}</div>;
+    }
+
+    if (loading) {
+      return <div>Loading...</div>;
+    }
+
     return (
       <div className="films-container">
         <div className="row">
-          {this.state.films.length ? (
-            this.state.films.map(film => {
-              return <Film key={film.id} film={film} clicked={() => this.props.goToFilm(film.id)} />;
-            })
-          ) : (
-            <div>No films found</div>
-          )}
+          {filmsList.map(film => (
+            <Film key={film.id} film={film} />
+          ))}
         </div>
       </div>
     );

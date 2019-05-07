@@ -13,10 +13,14 @@ export const Film = ({ film, clicked }) => {
     <div className="col-4">
       <div className="row film">
         <div className="col-12">
-          <Poster clicked={clicked} url={poster_path} filmTitle={title} />
+          <Link to={`/film/${id}`}>
+            <Poster clicked={clicked} url={poster_path} filmTitle={title} />
+          </Link>
         </div>
         <div className="col-8">
-          <Title title={title} />
+          <Link to={`/film/${id}`}>
+            <Title title={title} />
+          </Link>
         </div>
         <div className="col-4">
           <Year date={release_date} />
