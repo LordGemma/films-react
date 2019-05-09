@@ -1,1 +1,3 @@
-export { Header } from './Header';
+export * from './Header';
+export * from './Search';
+export * from './TopBar';

@@ -2,11 +2,8 @@ import * as React from "react";
 import * as ReactDom from "react-dom";
 import { Provider } from 'react-redux'
 import { configureStore } from './store'
-import { loadState, saveState } from './utils';
-
 import App from "./App";
-
-const persistedState = loadState();
+import { saveState } from './utils';
 
 const store = configureStore();
 store.subscribe(() => {

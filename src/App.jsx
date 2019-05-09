@@ -16,7 +16,7 @@ class App extends Component {
           <Switch>
             <Route path="/" exact component={Main} />
             <Route path="/film/:id" component={FilmContainer} />
-            <Route path="/search/:query" component={SearchContainer} />
+            <Route path="/search/:searchQuery/:searchBy" component={Main} />
             <Route component={NotFound} />
           </Switch>
         </Router>

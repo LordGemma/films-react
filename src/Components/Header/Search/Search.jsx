@@ -2,7 +2,6 @@ import React, { Component } from "react";
 
 import { RadioButton } from "../../Common/RadioButton";
 import { Button } from "../../Common/Button";
-import { getSearchResult } from "../../../services";
 import "./Search.scss";
 
 export class Search extends Component {
@@ -10,7 +9,7 @@ export class Search extends Component {
     super(props);
 
     this.state = {
-      searchText: "",
+      searchQuery: "",
       searchBy: "title"
     };
 
@@ -19,10 +18,27 @@ export class Search extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    const {
+      match: {
+        params,
+      }
+    } = this.props;
+
+    const currentLocation = window.location.pathname.split('/')[1];
+
+    if(currentLocation === 'search') {
+      this.setState({
+        searchQuery: params.searchQuery,
+        searchBy: params.searchBy,
+      })
+    }
+  }
+
   handleChangeSearch(event) {
     const value = event.target.value;
     this.setState({
-      searchText: value
+      searchQuery: value
     });
   }
 
@@ -35,23 +51,35 @@ export class Search extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    const { searchText, searchBy } = this.state;
+
+    const {
+      history,
+      match: {
+        path
+      },
+      getFilms
+    } = this.props;
+
+    const { searchQuery, searchBy } = this.state;
+
     const searchData = {
-      search: searchText,
       searchBy: searchBy,
+      search: searchQuery
     };
-    console.log(searchData);
-    this.props.getFilms(searchData);
+
+    getFilms(searchData);
+
+    history.push(`/search/${searchQuery}/${searchBy}`);
+
     this.setState({
-      searchText: "",
+      searchQuery: "",
       searchBy: "title"
-    })
-    this.props.history.push(`search/${searchText}`);
+    });
   }
 
   render() {
     return (
-      <form className='search'>
+      <form className="search">
         <div className="form-group">
           <h3>Find your movie</h3>
         </div>
@@ -59,7 +87,7 @@ export class Search extends Component {
           <input
             type="text"
             className="form-control search-input"
-            value={this.state.searchText}
+            value={this.state.searchQuery}
             onChange={this.handleChangeSearch}
           />
         </div>

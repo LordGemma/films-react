@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
-import { getFilmsCount } from "../../store/films/actions";
 import { withRouter } from "react-router-dom";
+import { TopBar } from '../../Components/Header/TopBar';
 
 const mapStateToProps = state => {
   const { filmData, filmsList } = state.films;
@@ -12,13 +12,12 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getFilmsCount: () => dispatch(getFilmsCount())
   };
 };
 
-export const FilmContainer = withRouter(
+export const TopBarContainer = withRouter(
   connect(
     mapStateToProps,
     mapDispatchToProps
-  )(FilmDetail)
+  )(TopBar)
 );
