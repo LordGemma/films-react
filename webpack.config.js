@@ -73,6 +73,7 @@ module.exports = function(env, options) {
     output: {
       filename: '[name][hash].bundle.js',
       path: path.resolve(__dirname, 'dist'),
+      publicPath: '/',
     }
   };
 
