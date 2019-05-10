@@ -35,6 +35,10 @@ export class Search extends Component {
     }
   }
 
+  componentDidUpdate(prevProps) {
+
+  }
+
   handleChangeSearch(event) {
     const value = event.target.value;
     this.setState({
@@ -62,19 +66,17 @@ export class Search extends Component {
 
     const { searchQuery, searchBy } = this.state;
 
-    const searchData = {
-      searchBy: searchBy,
-      search: searchQuery
-    };
+    if(searchQuery.length) {
+      const searchData = {
+        searchBy: searchBy,
+        search: searchQuery
+      };
+  
+      getFilms(searchData);
+  
+      history.push(`/search/${searchQuery}/${searchBy}`);
+    }
 
-    getFilms(searchData);
-
-    history.push(`/search/${searchQuery}/${searchBy}`);
-
-    this.setState({
-      searchQuery: "",
-      searchBy: "title"
-    });
   }
 
   render() {

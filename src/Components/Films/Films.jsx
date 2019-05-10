@@ -5,7 +5,17 @@ import { Film } from "./Film";
 
 export class Films extends Component {
   fetchData() {
-    this.props.getFilms();
+    const isSearchPage = window.location.pathname.split('/')[1] === 'search';
+    const {
+      match: {
+        params: {
+          searchBy,
+          searchQuery
+        }
+      },
+    } = this.props;
+    const searchParams = isSearchPage ? {searchBy, searchQuery} : {};
+    this.props.getFilms(searchParams);
   }
 
   componentDidMount() {
@@ -13,7 +23,9 @@ export class Films extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (!_.isEqual(this.props.filmsList, prevProps.filmsList)) {
+    const isSearchPage = window.location.pathname.split('/')[1] === 'search';
+    const dataStorage = isSearchPage ? 'searchResult' : 'filmsList';
+    if (!_.isEqual(this.props[dataStorage], prevProps[dataStorage])) {
       this.fetchData();
     }
   }
