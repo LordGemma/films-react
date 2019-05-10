@@ -14,7 +14,7 @@ export class Films extends Component {
         }
       },
     } = this.props;
-    const searchParams = isSearchPage ? {searchBy, searchQuery} : {};
+    const searchParams = isSearchPage ? { searchBy, search: searchQuery } : {};
     this.props.getFilms(searchParams);
   }
 
