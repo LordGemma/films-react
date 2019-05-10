@@ -5,7 +5,7 @@ import "./App.scss";
 
 import { Main } from "./Components/Main";
 import { FilmContainer } from "./Containers/Films/FilmContainer";
-import { SearchContainer } from "./Containers/Search/SearchContainer";
+import { SearchPage } from "./Components/Header/Search/SearchPage";
 import { NotFound } from "./Components/404";
 
 class App extends Component {
@@ -16,7 +16,7 @@ class App extends Component {
           <Switch>
             <Route path="/" exact component={Main} />
             <Route path="/film/:id" component={FilmContainer} />
-            <Route path="/search/:searchQuery/:searchBy" component={Main} />
+            <Route path="/search/:searchQuery/:searchBy" component={SearchPage} />
             <Route component={NotFound} />
           </Switch>
         </Router>

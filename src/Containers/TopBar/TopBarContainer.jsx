@@ -3,10 +3,11 @@ import { withRouter } from "react-router-dom";
 import { TopBar } from '../../Components/Header/TopBar';
 
 const mapStateToProps = state => {
-  const { filmData, filmsList } = state.films;
+  const { filmsList } = state.films;
+  const { searchResult } = state.search;
   return {
-    filmData,
-    filmsList
+    filmsList,
+    searchResult,
   };
 };
 

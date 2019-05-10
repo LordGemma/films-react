@@ -5,7 +5,9 @@ import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state) => {
     const { filmsList, loading, error } = state.films;
+    const { searchResult } = state.search;
     return {
+        searchResult,
         filmsList,
         loading,
         error,
@@ -14,7 +16,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getFilms: () => dispatch(getFilms()),
+        getFilms: (params) => dispatch(getFilms(params)),
     }
 }
 

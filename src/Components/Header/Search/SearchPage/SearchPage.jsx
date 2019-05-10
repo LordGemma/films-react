@@ -1,14 +1,14 @@
 import React, { Fragment } from "react";
-import { Footer } from '../Footer';
-import "./Search.scss";
-import { Header } from '../Header';
-import { FilmsContainer } from '../../../Containers/Films';
+import { Footer } from '../../../Footer';
+import "./SearchPage.scss";
+import { Header } from '../../Header';
+import { FilmsContainer } from '../../../../Containers/Films';
 
 export const SearchPage = () => {
   return (
     <Fragment>
       <Header />
-      <main className="search-container">
+      <main className="search-page">
         <div className="container">
           <div className="row">
             <div className="col-12">

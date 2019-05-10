@@ -19,7 +19,7 @@ export class Films extends Component {
   }
 
   render() {
-    const { error, loading, filmsList } = this.props;
+    const { error, loading, filmsList, searchResult } = this.props;
 
     if (error) {
       return <div>Error! {error.message}</div>;
@@ -29,10 +29,13 @@ export class Films extends Component {
       return <div>Loading...</div>;
     }
 
+    const isSearchPage = window.location.pathname.split('/')[1] === 'search';
+    const dataStorage = isSearchPage ? searchResult : filmsList;
+
     return (
       <div className="films-container">
         <div className="row">
-          {filmsList.map(film => (
+          {dataStorage.map(film => (
             <Film key={film.id} film={film} />
           ))}
         </div>
