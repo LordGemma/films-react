@@ -1,22 +1,22 @@
 import React from 'react';
 import './TopBar.scss';
 import { FilmsCount } from './FilmsCount';
+import { Sorting } from './Sorting';
 
 export const TopBar = (props) => {
     const {
         searchResult,
-        filmsList
     } = props;
-    const isSearchPage = window.location.pathname.split('/')[1] === 'search';
-    const dataStorage = isSearchPage ? searchResult : filmsList;
     return (
         <div className="top-bar">
             <div className='container'>
                 <div className="row">
-                    <div className="col-6">
-                        <FilmsCount films={dataStorage} />
+                    <div className="col-8">
+                        <FilmsCount films={searchResult} />
                     </div>
-                    <div className="col-6">sorting block</div>
+                    <div className="col-4">
+                        <Sorting {...props} />
+                    </div>
                 </div>
             </div>
         </div>

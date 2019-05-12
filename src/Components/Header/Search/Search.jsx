@@ -95,7 +95,7 @@ export class Search extends Component {
         </div>
         <div className="row">
           <div className="col-8">
-            <span>Sort by</span>
+            <span>Search by</span>
             <div className="radio-toolbar">
               <RadioButton
                 text="Title"
