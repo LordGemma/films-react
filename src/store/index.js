@@ -1,9 +1,9 @@
 import { createStore, applyMiddleware } from 'redux';
-import { rootReducer } from './rootReducer';
 import reduxImmutableStateInvariant from 'redux-immutable-state-invariant';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import logger from 'redux-logger';
+import { rootReducer } from './rootReducer';
 import { loadState } from '../utils';
 
 const persistedState = loadState();
@@ -16,8 +16,8 @@ export function configureStore() {
       applyMiddleware(
         thunk,
         logger,
-        reduxImmutableStateInvariant()
-      )
-    )
-  )
-};
+        reduxImmutableStateInvariant(),
+      ),
+    ),
+  );
+}

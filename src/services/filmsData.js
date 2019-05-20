@@ -1,11 +1,11 @@
-import axios from "axios";
-import { baseURL } from "../utils";
+import axios from 'axios';
+import { baseURL } from '../utils';
 
 axios.defaults.baseURL = baseURL;
 
 export function getFilmsData(params) {
-  return axios.get(`movies`, {
-    params: params
+  return axios.get('movies', {
+    params,
   });
 }
 

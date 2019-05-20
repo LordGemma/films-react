@@ -1,14 +1,16 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-import { Genres } from "./Genres";
-import { Poster } from "./Poster";
-import { Title } from "./Title";
-import { Year } from "./Year";
-import "./Film.scss";
+import { Genres } from './Genres';
+import { Poster } from './Poster';
+import { Title } from './Title';
+import { Year } from './Year';
+import './Film.scss';
 
 export const Film = ({ film, clicked }) => {
-  const { id, title, poster_path, genres, release_date } = film;
+  const {
+    id, title, poster_path, genres, release_date,
+  } = film;
   return (
     <div className="col-4">
       <div className="row film">

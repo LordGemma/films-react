@@ -1,23 +1,9 @@
-import React, { Component } from "react";
-import _ from "lodash";
+import React, { Component } from 'react';
+import _ from 'lodash';
 
-import { Film } from "./Film";
+import { Film } from './Film';
 
 export class Films extends Component {
-  fetchData() {
-    const isSearchPage = window.location.pathname.split('/')[1] === 'search';
-    const {
-      match: {
-        params: {
-          searchBy,
-          searchQuery
-        }
-      },
-    } = this.props;
-    const searchParams = isSearchPage ? { searchBy, search: searchQuery } : {};
-    this.props.getFilms(searchParams);
-  }
-
   componentDidMount() {
     this.fetchData();
   }
@@ -30,11 +16,33 @@ export class Films extends Component {
     }
   }
 
+  fetchData() {
+    const isSearchPage = window.location.pathname.split('/')[1] === 'search';
+    const {
+      match: {
+        params: {
+          searchBy,
+          searchQuery,
+        },
+      },
+    } = this.props;
+    const searchParams = isSearchPage ? { searchBy, search: searchQuery } : {};
+    this.props.getFilms(searchParams);
+  }
+
   render() {
-    const { error, loading, filmsList, searchResult } = this.props;
+    const {
+      error, loading, filmsList, searchResult,
+    } = this.props;
 
     if (error) {
-      return <div>Error! {error.message}</div>;
+      return (
+        <div>
+          Error!
+          {' '}
+          {error.message}
+        </div>
+      );
     }
 
     if (loading) {

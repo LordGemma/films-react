@@ -1,17 +1,17 @@
-import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { TopBar } from '../../Components/Header/TopBar';
-import { 
+import {
   sortFilmsByRating,
   sortFilmsByReleaseDate,
- } from '../../store/sorting/actions';
+} from '../../store/sorting/actions';
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   const { searchResult } = state.search;
-  const { 
+  const {
     sortByReleaseDate,
     sortByRating,
-   } = state.sorting;
+  } = state.sorting;
   return {
     searchResult,
     sortByReleaseDate,
@@ -19,16 +19,14 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    sortFilmsByRating: (list) => dispatch(sortFilmsByRating(list)),
-    sortFilmsByReleaseDate: (list) => dispatch(sortFilmsByReleaseDate(list)),
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  sortFilmsByRating: list => dispatch(sortFilmsByRating(list)),
+  sortFilmsByReleaseDate: list => dispatch(sortFilmsByReleaseDate(list)),
+});
 
 export const TopBarContainer = withRouter(
   connect(
     mapStateToProps,
-    mapDispatchToProps
-  )(TopBar)
+    mapDispatchToProps,
+  )(TopBar),
 );

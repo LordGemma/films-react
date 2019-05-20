@@ -1,19 +1,18 @@
-const path = require("path");
-const webpack = require("webpack");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const CleanWebpackPlugin = require("clean-webpack-plugin");
+const path = require('path');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = function(env, options) {
-  const isProduction = options.mode === "production";
+module.exports = function (env, options) {
+  const isProduction = options.mode === 'production';
 
   const config = {
-    context: path.join(__dirname, "src"),
-    entry: "./",
-    mode: isProduction ? "production" : "development",
-    devtool: isProduction ? "none" : "source-map",
+    context: path.join(__dirname, 'src'),
+    entry: './',
+    mode: isProduction ? 'production' : 'development',
+    devtool: isProduction ? 'none' : 'source-map',
 
     resolve: {
-      extensions: [".js", ".jsx"]
+      extensions: ['.js', '.jsx'],
     },
 
     module: {
@@ -21,24 +20,24 @@ module.exports = function(env, options) {
         {
           test: /\.(js|jsx)$/,
           use: {
-            loader: "babel-loader",
-            options:{
-              presets:["@babel/preset-env", "@babel/preset-react"],
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env', '@babel/preset-react'],
             },
           },
           exclude: /node_modules/,
         },
         {
-          test:/\.css$/,
-          use:['style-loader','css-loader']
+          test: /\.css$/,
+          use: ['style-loader', 'css-loader'],
         },
         {
           test: /\.scss$/,
           use: [
-            {loader: "style-loader"},
-            {loader: "css-loader"},
-            {loader: "sass-loader"}
-          ]
+            { loader: 'style-loader' },
+            { loader: 'css-loader' },
+            { loader: 'sass-loader' },
+          ],
         },
         {
           test: /\.(png|jpg|jpeg|gif)$/,
@@ -52,14 +51,19 @@ module.exports = function(env, options) {
             },
           ],
         },
-      ]
+        {
+          test: /\.js$/,
+          exclude: /node_modules/,
+          use: ['babel-loader', 'eslint-loader'],
+        },
+      ],
     },
 
     plugins: [
       new HtmlWebpackPlugin({
-        title: "App",
+        title: 'App',
         hash: true,
-        template: path.resolve(__dirname, "./index.html")
+        template: path.resolve(__dirname, './index.html'),
       }),
       new webpack.HotModuleReplacementPlugin(),
     ],
@@ -74,7 +78,7 @@ module.exports = function(env, options) {
       filename: '[name][hash].bundle.js',
       path: path.resolve(__dirname, 'dist'),
       publicPath: '/',
-    }
+    },
   };
 
   return config;

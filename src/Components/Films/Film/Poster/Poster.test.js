@@ -1,14 +1,14 @@
-import React from "react";
-import { shallow } from "enzyme";
-import { Poster } from "./Poster";
+import React from 'react';
+import { shallow } from 'enzyme';
+import { Poster } from './Poster';
 
-describe("Poster component", () => {
-    const image = {
-        "title":"Gemini",
-        "poster_path":"test-url"
-    };
+describe('Poster component', () => {
+  const image = {
+    title: 'Gemini',
+    poster_path: 'test-url',
+  };
 
-  it("renders", () => {
+  it('renders', () => {
     const wrapper = shallow(<Poster date="2018-03-30" />);
 
     expect(wrapper.exists()).toBe(true);
@@ -18,6 +18,6 @@ describe("Poster component", () => {
     const wrapper = shallow(<Poster url={image.poster_path} filmTitle={image.title} />);
 
     const url = wrapper.find('img').prop('src');
-    expect(url).toEqual("test-url");
+    expect(url).toEqual('test-url');
   });
 });

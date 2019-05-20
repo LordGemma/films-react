@@ -2,7 +2,7 @@ import {
   GET_ALL_FILMS_BEGIN,
   GET_ALL_FILMS_SUCCESS,
   GET_ALL_FILMS_FAILURE,
-} from "../actions/actionTypes";
+} from '../actions/actionTypes';
 
 const initialState = {
   loading: false,
@@ -16,20 +16,20 @@ export const filmsReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: true,
-        error: null
+        error: null,
       };
     case GET_ALL_FILMS_SUCCESS:
       return {
         ...state,
         loading: false,
-        filmsList: action.payload.films
+        filmsList: action.payload.films,
       };
     case GET_ALL_FILMS_FAILURE:
       return {
         ...state,
         loading: false,
         error: action.payload.error,
-        filmsList: []
+        filmsList: [],
       };
     default:
       return state;

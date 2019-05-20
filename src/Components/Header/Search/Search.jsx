@@ -1,16 +1,16 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import { RadioButton } from "../../Common/RadioButton";
-import { Button } from "../../Common/Button";
-import "./Search.scss";
+import { RadioButton } from '../../Common/RadioButton';
+import { Button } from '../../Common/Button';
+import './Search.scss';
 
 export class Search extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      searchQuery: "",
-      searchBy: "title"
+      searchQuery: '',
+      searchBy: 'title',
     };
 
     this.handleChangeSearch = this.handleChangeSearch.bind(this);
@@ -22,34 +22,30 @@ export class Search extends Component {
     const {
       match: {
         params,
-      }
+      },
     } = this.props;
 
     const currentLocation = window.location.pathname.split('/')[1];
 
-    if(currentLocation === 'search') {
+    if (currentLocation === 'search') {
       this.setState({
         searchQuery: params.searchQuery,
         searchBy: params.searchBy,
-      })
+      });
     }
   }
 
-  componentDidUpdate(prevProps) {
-
-  }
-
   handleChangeSearch(event) {
-    const value = event.target.value;
+    const { value } = event.target;
     this.setState({
-      searchQuery: value
+      searchQuery: value,
     });
   }
 
   handleChangeSearchBy(event) {
-    const value = event.target.value;
+    const { value } = event.target;
     this.setState({
-      searchBy: value
+      searchBy: value,
     });
   }
 
@@ -59,27 +55,30 @@ export class Search extends Component {
     const {
       history,
       match: {
-        path
+        path,
       },
-      getFilms
+      getFilms,
     } = this.props;
 
     const { searchQuery, searchBy } = this.state;
 
-    if(searchQuery.length) {
+    if (searchQuery.length) {
       const searchData = {
-        searchBy: searchBy,
-        search: searchQuery
+        searchBy,
+        search: searchQuery,
       };
-  
+
       getFilms(searchData);
-  
+
       history.push(`/search/${searchQuery}/${searchBy}`);
     }
-
   }
 
   render() {
+    const {
+      searchQuery,
+      searchBy,
+    } = this.state;
     return (
       <form className="search">
         <div className="form-group">
@@ -89,7 +88,7 @@ export class Search extends Component {
           <input
             type="text"
             className="form-control search-input"
-            value={this.state.searchQuery}
+            value={searchQuery}
             onChange={this.handleChangeSearch}
           />
         </div>
@@ -102,14 +101,14 @@ export class Search extends Component {
                 radioGroup="search"
                 value="title"
                 changed={this.handleChangeSearchBy}
-                active={this.state.searchBy === "title"}
+                active={searchBy === 'title'}
               />
               <RadioButton
                 text="Genre"
                 radioGroup="search"
                 value="genre"
                 changed={this.handleChangeSearchBy}
-                active={this.state.searchBy === "genre"}
+                active={searchBy === 'genre'}
               />
             </div>
           </div>

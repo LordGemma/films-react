@@ -1,9 +1,9 @@
-import React from "react";
-import { shallow } from "enzyme";
-import { Title } from "./Title";
+import React from 'react';
+import { shallow } from 'enzyme';
+import { Title } from './Title';
 
-describe("Title component", () => {
-  it("renders", () => {
+describe('Title component', () => {
+  it('renders', () => {
     const wrapper = shallow(<Title title="Test" />);
 
     expect(wrapper.exists()).toBe(true);

@@ -1,14 +1,14 @@
-import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import "bootstrap/scss/bootstrap.scss";
-import "./App.scss";
+import React, { PureComponent } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import 'bootstrap/scss/bootstrap.scss';
+import './App.scss';
 
-import { Main } from "./Components/Main";
-import { FilmContainer } from "./Containers/Films/FilmContainer";
-import { SearchPage } from "./Components/Header/Search/SearchPage";
-import { NotFound } from "./Components/404";
+import { Main } from './Components/Main';
+import { FilmContainer } from './Containers/Films/FilmContainer';
+import { SearchPage } from './Components/Header/Search/SearchPage';
+import { NotFound } from './Components/404';
 
-class App extends Component {
+class App extends PureComponent {
   render() {
     return (
       <div className="entry-point">

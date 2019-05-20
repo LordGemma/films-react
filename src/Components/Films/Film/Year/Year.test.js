@@ -1,9 +1,9 @@
-import React from "react";
-import { shallow } from "enzyme";
-import { Year } from "./Year";
+import React from 'react';
+import { shallow } from 'enzyme';
+import { Year } from './Year';
 
-describe("Year component", () => {
-  it("renders", () => {
+describe('Year component', () => {
+  it('renders', () => {
     const wrapper = shallow(<Year date="2018-03-30" />);
 
     expect(wrapper.exists()).toBe(true);

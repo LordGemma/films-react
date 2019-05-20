@@ -1,16 +1,11 @@
-import React, { Fragment, Component } from "react";
-import _ from "lodash";
-import { Footer } from "../Footer";
-import FilmHeader from "./FilmHeader";
-import { Poster, Title, Genres } from "../Films/Film";
-import "./FilmDetail.scss";
+import React, { Fragment, Component } from 'react';
+import _ from 'lodash';
+import { Footer } from '../Footer';
+import FilmHeader from './FilmHeader';
+import { Poster, Title, Genres } from '../Films/Film';
+import './FilmDetail.scss';
 
 export class FilmDetail extends Component {
-  fetchData() {
-    const { id } = this.props.match.params;
-    this.props.getFilm(id);
-  }
-
   componentDidMount() {
     this.fetchData();
   }
@@ -21,15 +16,27 @@ export class FilmDetail extends Component {
     }
   }
 
+  fetchData() {
+    const { id } = this.props.match.params;
+    this.props.getFilm(id);
+  }
+
   render() {
     const {
       error,
       loading,
-      filmData: { id, title, poster_path, release_date, genres, overview }
+      filmData: {
+        id, title, poster_path, release_date, genres, overview,
+      },
     } = this.props;
 
     if (error) {
-      return <div>Error! {error.message}</div>;
+      return (
+        <div>
+Error!
+          {error.message}
+        </div>
+      );
     }
 
     if (loading) {

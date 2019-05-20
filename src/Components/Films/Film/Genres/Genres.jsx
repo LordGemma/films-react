@@ -1,5 +1,5 @@
-import React from "react";
-import Genre from "./Genre/Genre";
+import React from 'react';
+import Genre from './Genre/Genre';
 
 export const Genres = ({ filmId, genres }) => (
   <div className="genres">
