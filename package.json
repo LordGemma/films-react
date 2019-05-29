@@ -9,6 +9,7 @@
     "test:watch": "jest --watch",
     "eslint:fix": "eslint -- . --ignore-path .gitignore --fix",
     "test:coverage": "jest --coverage --colors",
+    "storybook": "start-storybook",
     "dev": "webpack-dev-server --open --mode development",
     "prod": "webpack --mode production"
   },
@@ -20,6 +21,7 @@
     "@babel/preset-env": "^7.3.4",
     "@babel/preset-flow": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
+    "@storybook/react": "^5.0.11",
     "babel-cli": "^6.26.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.5.0",
