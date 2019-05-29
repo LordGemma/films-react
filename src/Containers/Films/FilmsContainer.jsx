@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { Films } from '../../Components/Films';
+import Films from '../../Components/Films';
 import { getFilms } from '../../store/films/actions';
 
 const mapStateToProps = (state) => {

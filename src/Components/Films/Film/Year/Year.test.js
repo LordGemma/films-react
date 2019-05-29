@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Year } from './Year';
+import Year from './Year';
 
 describe('Year component', () => {
   it('renders', () => {

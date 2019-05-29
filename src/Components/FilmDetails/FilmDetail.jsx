@@ -1,24 +1,50 @@
+// @flow
+
 import React, { Fragment, Component } from 'react';
 import _ from 'lodash';
 import { Footer } from '../Footer';
 import FilmHeader from './FilmHeader';
-import { Poster, Title, Genres } from '../Films/Film';
+import {
+  Poster,
+  Title,
+  Genres,
+  FilmType,
+} from '../Films/Film';
 import './FilmDetail.scss';
 
-export class FilmDetail extends Component {
+type FilmDetailType = {
+  match: any,
+  filmData: {
+    ...FilmType,
+    overview: string,
+  },
+  getFilm: void,
+  error: any,
+  loading: boolean,
+}
+
+export class FilmDetail extends Component<FilmDetailType> {
   componentDidMount() {
     this.fetchData();
   }
 
   componentDidUpdate(prevProps) {
-    if (!_.isEqual(this.props.filmData, prevProps.filmData)) {
+    const { filmData } = this.props;
+    if (!_.isEqual(filmData, prevProps.filmData)) {
       this.fetchData();
     }
   }
 
   fetchData() {
-    const { id } = this.props.match.params;
-    this.props.getFilm(id);
+    const {
+      match: {
+        params: {
+          id,
+        },
+      },
+      getFilm,
+    } = this.props;
+    getFilm(id);
   }
 
   render() {
@@ -26,7 +52,12 @@ export class FilmDetail extends Component {
       error,
       loading,
       filmData: {
-        id, title, poster_path, release_date, genres, overview,
+        id,
+        title,
+        poster_path,
+        release_date,
+        genres,
+        overview,
       },
     } = this.props;
 

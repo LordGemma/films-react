@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { Genres } from './Genres';
+import Genres from './Genres';
 
 describe('Genres component', () => {
   it('renders', () => {

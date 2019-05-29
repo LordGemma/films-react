@@ -1,9 +1,20 @@
+// @flow
+
 import React, { Component } from 'react';
 import _ from 'lodash';
 
-import { Film } from './Film';
+import Film from './Film';
 
-export class Films extends Component {
+type FilmsType = {
+  match: any,
+  getFilms: void,
+  error: any,
+  loading: boolean,
+  filmsList: Array<any>,
+  searchResult: Array<any>,
+}
+
+class Films extends Component<FilmsType> {
   componentDidMount() {
     this.fetchData();
   }
@@ -27,7 +38,8 @@ export class Films extends Component {
       },
     } = this.props;
     const searchParams = isSearchPage ? { searchBy, search: searchQuery } : {};
-    this.props.getFilms(searchParams);
+    const { getFilms } = this.props;
+    getFilms(searchParams);
   }
 
   render() {
@@ -63,3 +75,5 @@ export class Films extends Component {
     );
   }
 }
+
+export default Films;

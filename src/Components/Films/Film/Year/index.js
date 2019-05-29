@@ -1,1 +1,1 @@
-export * from './Year';
+export default from './Year';

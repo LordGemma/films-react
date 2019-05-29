@@ -1,4 +1,14 @@
+// @flow
+
 import React, { Fragment } from 'react';
+
+type RadioButtonType = {
+  text: string,
+  radioGroup: string,
+  value: string,
+  active: boolean,
+  changed: void,
+}
 
 export const RadioButton = ({
   text,
@@ -6,7 +16,7 @@ export const RadioButton = ({
   value,
   active,
   changed,
-}) => (
+}: RadioButtonType) => (
   <Fragment>
     <input
       type="radio"

@@ -1,13 +1,14 @@
 {
   "presets": [
-    "@babel/preset-env",
-    "@babel/preset-react",
+    "@babel/react",
+    "@babel/flow"
   ],
+  "retainLines": true,
   "env": {
     "test": {
       "plugins": [
-        "transform-es2015-modules-commonjs",
-      ],
-    },
-  },
+        "transform-es2015-modules-commonjs"
+      ]
+    }
+  }
 }
