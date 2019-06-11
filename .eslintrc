@@ -22,5 +22,10 @@
       "ignoreExport": false
     }],
     "import/prefer-default-export": "off"
+  },
+  "settings": {
+    "flowtype": {
+      "onlyFilesWithFlowAnnotation": true
+    }
   }
 }

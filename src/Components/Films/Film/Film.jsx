@@ -21,10 +21,6 @@ export type FilmType = {
 }
 
 class Film extends PureComponent<FilmType> {
-  static defaultProps = {
-    clicked: () => null,
-  };
-
   render() {
     const {
       film: {
@@ -42,7 +38,7 @@ class Film extends PureComponent<FilmType> {
           <div className="col-12">
             <Link to={`/film/${id}`}>
               <Poster
-                clicked={clicked}
+                clicked={clicked || null}
                 url={poster_path}
                 filmTitle={title}
               />

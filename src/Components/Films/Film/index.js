@@ -1,5 +1,5 @@
-export default, { FilmType } from './Film';
-export Genres from './Genres';
-export Poster from './Poster';
-export Year from './Year';
-export Title from './Title';
+export { default, FilmType } from './Film';
+export { default as Genres } from './Genres';
+export { default as Poster } from './Poster';
+export { default as Year } from './Year';
+export { default as Title } from './Title';
