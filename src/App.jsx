@@ -5,7 +5,7 @@ import './App.scss';
 
 import { Main } from './Components/Main';
 import { FilmContainer } from './Containers/Films/FilmContainer';
-import { SearchPage } from './Components/Header/Search/SearchPage';
+import { SearchPage } from './Components/SearchPage';
 import { NotFound } from './Components/404';
 
 class App extends PureComponent {

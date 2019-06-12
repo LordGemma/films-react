@@ -1,10 +1,21 @@
+// @flow
+
 import React, { Component } from 'react';
 
-import { RadioButton } from '../../Common/RadioButton';
-import { Button } from '../../Common/Button';
+import { RadioButton } from '../Common/RadioButton';
+import { Button } from '../Common/Button';
 import './Search.scss';
 
-export class Search extends Component {
+type SearchType = {
+  match: {
+    params: any,
+    path: string,
+  },
+  history: any,
+  getFilms: void,
+};
+
+export class Search extends Component<SearchType> {
   constructor(props) {
     super(props);
 

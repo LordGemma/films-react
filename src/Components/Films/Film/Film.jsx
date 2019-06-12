@@ -38,7 +38,7 @@ class Film extends PureComponent<FilmType> {
           <div className="col-12">
             <Link to={`/film/${id}`}>
               <Poster
-                clicked={clicked || null}
+                clicked={clicked}
                 url={poster_path}
                 filmTitle={title}
               />

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { Search } from '../../Components/Header/Search';
+import { Search } from '../../Components/Search';
 import { getSearchResult } from '../../store/search/actions';
 
 const mapStateToProps = (state) => {

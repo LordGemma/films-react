@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
 
-import Film from './Film';
+import { Film } from './Film';
 
 type FilmsType = {
   match: any,
