@@ -1,1 +1,1 @@
-# react-redux-proj
+# React, Redux, React-Router, Flow, Jest, Cyprus
